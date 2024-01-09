@@ -24,7 +24,7 @@ class ResetPasswordController extends Controller
         return view('auth.reset-password.reset-password');
     }
 
-    public function process(Request $request)
+    public function process(ResetPasswordRequest $request)
     {
         // dd($request->all());
         $user = $this->user->whereEmail($request->email)->first();

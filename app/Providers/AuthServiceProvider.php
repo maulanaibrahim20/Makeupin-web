@@ -7,6 +7,7 @@ namespace App\Providers;
 use App\Models\Role;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Auth\Notifications\ResetPassword;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -36,6 +37,10 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define("client", function ($user) {
             return $user->hasRole(Role::MEMBER);
+        });
+
+        ResetPassword::createUrlUsing(function ($user, string $token) {
+            return url("/new-password?token=$token&email=$user->email");
         });
     }
 }

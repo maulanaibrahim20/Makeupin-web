@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 use Illuminate\Auth\Events\PasswordReset;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class NewPasswordController extends Controller
 {
@@ -57,8 +58,10 @@ class NewPasswordController extends Controller
 
             DB::commit();
             if ($status == Password::PASSWORD_RESET) {
+                Alert::succes('success', 'Selamat password anda berhasil diubah!');
                 return redirect(route('login.index'))->with('Success', 'Selamat password anda berhasil diubah!');
             } else {
+                Alert::error('success', 'Maaf token sudah kedaluwarsa, silahkan lakukan reset password!');
                 return redirect(route('login.index'))->with('Error', 'Maaf token sudah kedaluwarsa, silahkan lakukan reset password!');
             }
         } catch (\Throwable $e) {

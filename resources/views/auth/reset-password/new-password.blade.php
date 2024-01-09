@@ -60,7 +60,8 @@
                             {{ session('danger') }}
                         </div>
                     @endif
-                    <form id="formAuthentication" class="mb-3" action="{{ route('new-password.process') }} "
+                    <form id="formAuthentication" class="mb-3"
+                        action="{{ route('new-password.process', ['token' => request('token'), 'email' => request('email')]) }} "
                         method="POST" novalidate>
                         @csrf
                         <div class="mb-3 form-password-toggle">

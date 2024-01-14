@@ -27,6 +27,6 @@ class UserSeeder extends Seeder
         // $member = User::factory()->create([
         //     "email" => "client.app@mailinator.com"
         // ]);
-        // $member->assignRole(Role::fingById(User::MEMBER), 'web');
+        // $member->assignRole(Role::fingById(User::MEMBER));
     }
 }

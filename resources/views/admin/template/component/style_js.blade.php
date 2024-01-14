@@ -18,6 +18,9 @@
 <script src="{{ url('/assets') }}/vendor/libs/swiper/swiper.js"></script>
 <script src="{{ url('/assets') }}/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
 <script src="{{ url('/assets') }}/vendor/libs/toastr/toastr.js"></script>
+<script src="{{ url('/assets') }}/vendor/libs/formvalidation/dist/js/FormValidation.min.js"></script>
+<script src="{{ url('/assets') }}/vendor/libs/formvalidation/dist/js/plugins/Bootstrap5.min.js"></script>
+<script src="{{ url('/assets') }}/vendor/libs/formvalidation/dist/js/plugins/AutoFocus.min.js"></script>
 
 <!-- Main JS -->
 <script src="{{ url('/assets') }}/js/main.js"></script>
@@ -25,3 +28,5 @@
 <!-- Page JS -->
 <script src="{{ url('/assets') }}/js/dashboards-analytics.js"></script>
 <script src="{{ url('/assets') }}/js/ui-toasts.js"></script>
+<script src="{{ url('/assets') }}/js/tables-datatables-basic.js"></script>
+<script src="{{ url('/assets') }}/js/form-validation.js"></script>

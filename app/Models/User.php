@@ -50,4 +50,12 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function setFillableAttributes()
+    {
+        if ($this->hasRole('MAKEUP_BOS')) {
+            $this->fillable[] = 'email_verified_at';
+            $this->fillable[] = 'remember_token';
+        }
+    }
 }

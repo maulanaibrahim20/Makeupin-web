@@ -65,20 +65,21 @@
             {{-- Menu Item --}}
 
             <!-- Layouts -->
-            <li class="menu-item">
+            <li
+                class="menu-item {{ request::segment(3) == 'client' || request::segment(3) == 'owner' ? 'active open' : '' }}">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
-                    <i class="menu-icon tf-icons ti ti-layout-sidebar"></i>
+                    <i class="menu-icon tf-icons ti ti-user"></i>
                     <div data-i18n="Create Account User">Create Account User</div>
                 </a>
                 <ul class="menu-sub">
-                    <li class="menu-item">
-                        <a href="layouts-collapsed-menu.html" class="menu-link">
-                            <div data-i18n="Collapsed menu">Collapsed menu</div>
+                    <li class="menu-item {{ request::segment(3) == 'client' ? 'active' : '' }}">
+                        <a href="{{ url('/admin/create/client') }}" class="menu-link">
+                            <div data-i18n="Create Client">Create Client</div>
                         </a>
                     </li>
-                    <li class="menu-item">
-                        <a href="layouts-content-navbar.html" class="menu-link">
-                            <div data-i18n="Content navbar">Content navbar</div>
+                    <li class="menu-item {{ request::segment(3) == 'owner' ? 'active' : '' }}">
+                        <a href="{{ url('/admin/create/owner') }}" class="menu-link">
+                            <div data-i18n="Create Owner">Create Owner</div>
                         </a>
                     </li>
                 </ul>
@@ -89,10 +90,8 @@
             <li class="menu-header small text-uppercase">
                 <span class="menu-header-text">Makeup</span>
             </li>
-
-
-            <li class="menu-item {{ Request::segment(2) === 'dashboard' ? 'active' : '' }}">
-                <a href="{{ url('/admin/dashboard') }}" class="menu-link">
+            <li class="menu-item {{ Request::segment(2) === 'katalog' ? 'active' : '' }}">
+                <a href="{{ url('/owner/katalog') }}" class="menu-link">
                     <i class="menu-icon tf-icons ti ti-smart-home"></i>
                     <div data-i18n="Katalog Makeup">Katalog Makeup</div>
                 </a>

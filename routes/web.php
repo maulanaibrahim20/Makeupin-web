@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\AppController;
+use App\Http\Controllers\WEB\Admin\User\ClientController;
+use App\Http\Controllers\WEB\Admin\User\OwnerController;
+use App\Http\Controllers\WEB\Admin\Wilayah\WilayahController;
 use App\Http\Controllers\WEB\Auth\LoginController;
 use App\Http\Controllers\WEB\Auth\LogoutController;
 use App\Http\Controllers\WEB\Auth\NewPasswordController;
@@ -8,6 +11,7 @@ use App\Http\Controllers\WEB\Auth\RegisterController;
 use App\Http\Controllers\WEB\Auth\ResetPasswordController;
 use App\Http\Controllers\WEB\Auth\VerificationController;
 use App\Http\Controllers\WEB\DashboardController;
+use App\Http\Controllers\WEB\Owner\Makeup\MakeupController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,7 +29,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['guest'])->group(function () {
 
-    Route::get('/', [AppController::class, 'index']);
+    Route::get('/masuk', [AppController::class, 'index']);
 
     Route::prefix('login')->name('login.')->group(function () {
         Route::get('/', [LoginController::class, 'index'])
@@ -67,6 +71,15 @@ Route::middleware(['auth'])->group(function () {
 
     Route::group(['middleware' => ['can:admin']], function () {
         Route::prefix('admin')->group(function () {
+            Route::prefix('wilayah')->group(function () {
+                Route::get('/ambil_kecamatan', [WilayahController::class, 'ambil_kecamatan']);
+                Route::get('/ambil_kelurahan', [WilayahController::class, 'ambil_kelurahan']);
+            });
+
+            Route::prefix('create')->group(function () {
+                Route::resource('client', ClientController::class);
+                Route::resource('owner', OwnerController::class);
+            });
             Route::get('/dashboard', [DashboardController::class, 'admin']);
         });
     });
@@ -79,6 +92,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::group(['middleware' => ['can:mua']], function () {
         Route::prefix('owner')->group(function () {
+            Route::resource('katalog', MakeupController::class);
             Route::get('/dashboard', [DashboardController::class, 'owner']);
         });
     });

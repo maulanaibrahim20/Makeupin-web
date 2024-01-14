@@ -20,9 +20,12 @@
     href="{{ url('/assets') }}/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css" />
 <link rel="stylesheet" href="{{ url('/assets') }}/vendor/libs/toastr/toastr.css" />
 <link rel="stylesheet" href="{{ url('/assets') }}/vendor/libs/animate-css/animate.css" />
+<link rel="stylesheet" href="{{ url('/assets') }}/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css" />
+<link rel="stylesheet" href="{{ url('/assets') }}/vendor/libs/datatables-rowgroup-bs5/rowgroup.bootstrap5.css" />
 
 <!-- Page CSS -->
 <link rel="stylesheet" href="{{ url('/assets') }}/vendor/css/pages/cards-advance.css" />
+<link rel="stylesheet" href="{{ url('/assets') }}/vendor/libs/formvalidation/dist/css/formValidation.min.css" />
 <!-- Helpers -->
 <script src="{{ url('/assets') }}/vendor/js/helpers.js"></script>
 

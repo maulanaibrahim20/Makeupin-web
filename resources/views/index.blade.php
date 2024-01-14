@@ -23,6 +23,7 @@
         rel="stylesheet" />
 
     @include('admin.template.component.style_css')
+    @yield('css')
 </head>
 
 <body>
@@ -66,6 +67,7 @@
     <!-- / Layout wrapper -->
     @include('admin.template.component.style_js')
     @include('sweetalert::alert')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     @yield('script')
 
 </body>
